@@ -1,6 +1,5 @@
 package com.lambdaschool.starthere;
 
-
 import com.lambdaschool.starthere.models.Role;
 import com.lambdaschool.starthere.models.User;
 import com.lambdaschool.starthere.models.UserRoles;
@@ -14,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 
 @Transactional
-@Component
+//@Component
 public class SeedData implements CommandLineRunner
 {
     @Autowired

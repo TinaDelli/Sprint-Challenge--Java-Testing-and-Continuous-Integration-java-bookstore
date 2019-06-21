@@ -28,18 +28,30 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter
         http.authorizeRequests().antMatchers(
                 "/",
                 "/h2-console/**",
-                "/swagger-resources/**",
-                "/swagger-resources/configuration/ui",
-                "/swagger-resources/configuration/security",
-                "/swagger-resource/**",
-                "/swagger-ui.html",
-                "/v2/api-docs",
-                "/webjars/**",
+                "/v2/api-docs",            // swagger
+                "/swagger-resources",      // swagger
+                "/swagger-resources/**",   // swagger
+                "/configuration/ui",       // swagger
+                "/configuration/security", // swagger
+                "/swagger-ui.html",        // swagger
+                "/webjars/**",             // swagger
+                "/error",                  // general web
+                "/favicon.ico",            // general web
+                "/**/*.png",               // general web
+                "/**/*.gif",               // general web
+                "/**/*.svg",               // general web
+                "/**/*.jpg",               // general web
+                "/**/*.html",              // general web
+                "/**/*.css",               // general web
+                "/**/*.js" ,                // general web
                 "/createnewuser"
                 )
                 .permitAll()
                 .antMatchers("/users/**", "/oauth/revoke-token").authenticated()
-                .antMatchers("/roles/**").hasAnyRole("ADMIN", "USER", "DATA")
+                .antMatchers("/books/**").hasAnyRole("DATA", "USER", "ADMIN")
+                .antMatchers("/authors/**").hasAnyRole("DATA", "USER", "ADMIN")
+                .antMatchers("/data/**").hasAnyRole("DATA", "ADMIN")
+                .antMatchers("/roles/**").hasAnyRole("ADMIN")
                 .antMatchers("/actuator/**").hasAnyRole("ADMIN")
                 .and()
                 .exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());

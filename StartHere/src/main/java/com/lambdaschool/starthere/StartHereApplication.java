@@ -11,7 +11,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableWebMvc
 @EnableJpaAuditing
 @SpringBootApplication
-@EnableSwagger2
 public class StartHereApplication
 {
 

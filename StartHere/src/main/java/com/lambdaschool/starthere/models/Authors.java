@@ -18,13 +18,14 @@ public class Authors extends Auditable
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long authorid;
 
-    @ApiModelProperty(name = "lastname", value = "Author's Last Name", required = true, example = "Rand")
-    private String lastname;
-
     @ApiModelProperty(name = "firstname", value = "Author's First Name", required = true, example = "Ayn")
     private String firstname;
 
-    @ManyToMany(mappedBy = "authorid")
+    @ApiModelProperty(name = "lastname", value = "Author's Last Name", required = true, example = "Rand")
+    private String lastname;
+
+
+    @ManyToMany(mappedBy = "authors")
     @JsonIgnoreProperties("authors")
     private List<Book> books = new ArrayList<>();
 
@@ -32,10 +33,10 @@ public class Authors extends Auditable
     {
     }
 
-    public Authors(String lastname, String firstname)
+    public Authors(String firstname, String lastname)
     {
-        this.lastname = lastname;
         this.firstname = firstname;
+        this.lastname = lastname;
     }
 
     public Authors(String lastname, String firstname, List<Book> books)

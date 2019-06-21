@@ -9,10 +9,11 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.lambdaschool</groupId>
-    <artifactId>authenticatedusers</artifactId>
+    <artifactId>starthere</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>authenticatedusers</name>
+    <name>starthere</name>
     <description>Demo project for Spring Boot</description>
+    <packaging>jar</packaging>
 
     <properties>
         <java.version>11</java.version>
@@ -151,11 +152,11 @@
                 <artifactId>heroku-maven-plugin</artifactId>
                 <version>2.0.3</version>
                 <configuration>
-                    <appName>jrmmba-starthere</appName>
+                    <appName>cdelli-bookstore</appName>
                     <includeTarget>false</includeTarget>
                     <includes>
                         <!--   For windows      <include>${project.build.directory}\${project.build.finalName}.jar</include>-->
-                        <include>${project.build.directory}/${project.build.finalName}.jar</include>
+                        <include>${project.build.directory}\${project.build.finalName}.jar</include>
                     </includes>
                     <jdkVersion>${java.version}</jdkVersion>
                     <processTypes>
